@@ -16,7 +16,7 @@ public class Tests
         using var playwright = await Playwright.CreateAsync();
 
         // Create browser instance
-        await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+        var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
             Headless = false
         });
@@ -27,7 +27,6 @@ public class Tests
         // Go to particular page
         await page.GotoAsync("https://demoqa.com/");
 
-        // simple example of filling the form
         await page.ClickAsync("text = Elements");
         await page.ClickAsync("text = Text Box");
         await page.FillAsync("#userName", "important user");
