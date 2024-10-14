@@ -15,8 +15,10 @@ public class NUnitPlaywright : PageTest
     [Test]
     public async Task Test1()
     {
-        await Page.ClickAsync("text = Elements");
-        await Page.ClickAsync("text = Text Box");
+        var btnElements = Page.Locator("text = Elements");
+        await btnElements.ClickAsync();
+        var btnTextBox = Page.Locator("text = Text Box");
+        await btnTextBox.ClickAsync();
         await Page.FillAsync("#userName", "important user");
         await Page.FillAsync("#userEmail", "importantemail@email.com");
         await Page.FillAsync("#currentAddress", "Important Street 77/88BHL");
